@@ -26,7 +26,7 @@ func _process(delta):
 
 func _on_Hitbox_area_entered(area):
 	
-	if area.is_in_group("Enemy_damager"):
+	if area.is_in_group("Enemy_damager") and stun == false:
 		
 		modulate = Color.white
 		velocity = -velocity * knockback
