@@ -11,12 +11,20 @@ var hp = 3
 
 var knockback = 6
 
+var kill_particle = preload("res://PLayer/Kill_particle.tscn")
+
+
 func _process(delta):
 	if Global.player != null and stun == false:
 		velocity = global_position.direction_to(Global.player.global_position)
 	elif stun:
 		velocity = lerp(velocity, Vector2(0, 0), 0.3)
+		
 	if hp <= 0:
+		if Global.node_creation_parent != null:
+			var kill_particle_instance = Global.instance_node(kill_particle, global_position, Global.node_creation_parent)
+			kill_particle_instance.rotation = velocity.angle()
+			
 		print("tod")
 		queue_free()
 		
