@@ -1,5 +1,7 @@
 extends Node
 
+var node_creation_parent = null
+
 func instance_node(node, location, parents):
 	
 	var node_instance = node.instance()
