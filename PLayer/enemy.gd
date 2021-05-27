@@ -9,6 +9,8 @@ var stun = false
 
 var hp = 3
 
+var knockback = 6
+
 func _process(delta):
 	if Global.player != null and stun == false:
 		velocity = global_position.direction_to(Global.player.global_position)
@@ -27,7 +29,7 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damager"):
 		
 		modulate = Color.white
-		velocity = -velocity * 4
+		velocity = -velocity * knockback
 		hp -= 1
 		stun = true
 		
