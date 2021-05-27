@@ -10,3 +10,7 @@ func _process(delta):
 		look_at(get_global_mouse_position())
 		look_once = false
 	global_position 	+= velocity.rotated(rotation) * speed * delta
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
