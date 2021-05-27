@@ -11,6 +11,8 @@ var hp = 3
 
 var knockback = 6
 
+var damage = 1
+
 var kill_particle = preload("res://PLayer/Kill_particle.tscn")
 
 
@@ -38,7 +40,7 @@ func _on_Hitbox_area_entered(area):
 		
 		modulate = Color.white
 		velocity = -velocity * knockback
-		hp -= 1
+		hp -= damage
 		stun = true
 		
 		$Stun_timer.start()
