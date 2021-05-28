@@ -32,7 +32,7 @@ func _process(delta):
 			var kill_particle_instance = Global.instance_node(kill_particle, global_position, Global.node_creation_parent)
 			kill_particle_instance.rotation = velocity.angle()
 			
-		print(Global.score)
+		
 		queue_free()
 		
 	global_position += velocity * speed * delta

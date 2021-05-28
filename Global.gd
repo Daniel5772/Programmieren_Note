@@ -1,8 +1,12 @@
 extends Node
 
 var node_creation_parent = null
+
 var player = null
+
 var score = 0
+
+var player_hp = 5
 
 func instance_node(node, location, parents):
 	
