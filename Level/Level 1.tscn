@@ -33,7 +33,7 @@ position = Vector2( 320, 180 )
 environment = SubResource( 1 )
 
 [node name="Enemy_spawn_timer" type="Timer" parent="."]
-wait_time = 100000.0
+wait_time = 0.5
 autostart = true
 
 [node name="UI" type="Node2D" parent="."]

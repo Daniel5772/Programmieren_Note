@@ -41,6 +41,7 @@ func _on_Reload_speed_timeout():
 
 
 func _on_Hitbox_area_entered(area):
+	
 	if area.is_in_group("Enemy"):
 		Global.player_hp -= 1
 

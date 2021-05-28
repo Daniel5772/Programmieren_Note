@@ -43,6 +43,9 @@ func _on_Hitbox_area_entered(area):
 		$Stun_timer.start()
 		area.get_parent().queue_free()
 
+	if area.is_in_group("hitbox_player"):
+		enemy_hp = 0
+
 
 
 func _on_Stun_timer_timeout():
