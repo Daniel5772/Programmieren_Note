@@ -2,7 +2,7 @@ extends Node2D
 
 var velocity = Vector2(1, 0)
 
-var speed = 250
+var speed = 500
 
 var look_once = true
 
