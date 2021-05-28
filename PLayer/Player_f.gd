@@ -5,9 +5,13 @@ var speed = 150
 
 var velocity = Vector2()
 
-var bullet =preload("res://PLayer/bullet.tscn")
+var bullet_1 = preload("res://PLayer/bullet.tscn")
+
+var bullet_2 = preload("res://PLayer/bullet_2.tscn")
 
 var can_shoot = true
+
+var can_shoot_2 = true
 
 var visibile = true
 
@@ -31,10 +35,15 @@ func _process(delta):
 	if is_dead == false:
 		global_position += speed * velocity * delta
 	
-	if Input.is_action_pressed("click") and Global.node_creation_parent != null and can_shoot and is_dead == false:
-		Global.instance_node(bullet, global_position, Global.node_creation_parent)
+	if Input.is_action_pressed("left_click") and Global.node_creation_parent != null and can_shoot and is_dead == false:
+		Global.instance_node(bullet_1, global_position, Global.node_creation_parent)
 		$Reload_speed.start()
 		can_shoot = false
+		
+	if Input.is_action_pressed("right_click") and Global.node_creation_parent != null and can_shoot_2 and is_dead == false:
+		Global.instance_node(bullet_2, global_position, Global.node_creation_parent)
+		$Reload_speed_2.start()
+		can_shoot_2 = false
 
 func _on_Reload_speed_timeout():
 	can_shoot = true
@@ -50,3 +59,5 @@ func _on_Hitbox_area_entered(area):
 			
 			
 
+func _on_Reload_speed_2_timeout():
+	can_shoot_2 = true

@@ -37,15 +37,25 @@ func _on_Hitbox_area_entered(area):
 		
 		modulate = Color.white
 		velocity = -velocity * Global.knockback
-		enemy_hp -= Global.damage
+		enemy_hp -= 1
 		stun = true
 		
 		$Stun_timer.start()
 		area.get_parent().queue_free()
-
+		
+	if area.is_in_group("Enemy_damager_2") and stun == false:
+		
+		modulate = Color.green
+		velocity = -velocity * Global.knockback
+		enemy_hp -= 3
+		stun = true
+		
+		$Stun_timer.start()
+		area.get_parent().queue_free()
+		
+		
 	if area.is_in_group("hitbox_player"):
 		enemy_hp = 0
-
 
 
 func _on_Stun_timer_timeout():

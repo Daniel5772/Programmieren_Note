@@ -10,8 +10,6 @@ var player_hp = 5
 
 var damage_multiplier = 1
 
-var damage = 1
-
 var poits_per_kill = 1
 
 var knockback = 6
