@@ -7,13 +7,13 @@ var velocity = Vector2()
 
 var stun = false
 
-var hp = 3
+var enemy_hp = 3
 
 var knockback = 6
 
 var damage = 1
 
-var multiplier = 1
+var damage_multiplier = 1
 
 var poits_per_kill = 1
 
@@ -26,8 +26,8 @@ func _process(delta):
 	elif stun:
 		velocity = lerp(velocity, Vector2(0, 0), 0.3)
 		
-	if hp <= 0:
-		Global.score += poits_per_kill * multiplier
+	if enemy_hp <= 0:
+		Global.score += poits_per_kill * damage_multiplier
 		if Global.node_creation_parent != null:
 			var kill_particle_instance = Global.instance_node(kill_particle, global_position, Global.node_creation_parent)
 			kill_particle_instance.rotation = velocity.angle()
@@ -45,7 +45,7 @@ func _on_Hitbox_area_entered(area):
 		
 		modulate = Color.white
 		velocity = -velocity * knockback
-		hp -= damage
+		enemy_hp -= damage
 		stun = true
 		
 		$Stun_timer.start()
