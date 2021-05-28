@@ -10,3 +10,6 @@ func _on_Button_pressed():
 
 func _on_Button2_pressed():
 	get_tree().change_scene("res://Screne/Menu.tscn")
+	
+	Global.score = 0
+	Global.player_hp = 5
