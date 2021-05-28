@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Programmiern_Note"
+config/name="Square_shooter"
 run/main_scene="res://Screne/Menu.tscn"
 config/icon="res://icon.png"
 
