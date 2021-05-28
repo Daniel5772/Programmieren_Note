@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Screne/Death_screne.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.2
+glow_blend_mode = 1
+glow_bicubic_upscale = true
+
+[node name="Death_screne" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_top = 50.0
+margin_right = 640.0
+margin_bottom = 188.0
+custom_fonts/font = SubResource( 1 )
+text = "You died"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control"]
+modulate = Color( 0.803922, 0.12549, 0.12549, 1 )
+margin_left = 32.0
+margin_top = 190.0
+margin_right = 240.0
+margin_bottom = 282.0
+custom_fonts/font = SubResource( 3 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control"]
+modulate = Color( 0.803922, 0.12549, 0.12549, 1 )
+margin_left = 386.023
+margin_top = 190.0
+margin_right = 594.023
+margin_bottom = 282.0
+custom_fonts/font = SubResource( 3 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]

@@ -45,5 +45,7 @@ func _on_Hitbox_area_entered(area):
 		Global.player_hp -= 1
 
 		if Global.player_hp <= 0:
-			queue_free()
-	
+			get_tree().change_scene("res://Screne/Death_screne.tscn")
+			
+			
+
