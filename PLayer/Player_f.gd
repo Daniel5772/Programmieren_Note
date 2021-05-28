@@ -43,8 +43,7 @@ func _on_Reload_speed_timeout():
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy"):
 		Global.player_hp -= 1
-		print(Global.player_hp)
+
 		if Global.player_hp <= 0:
-			print("tod")
 			queue_free()
 	

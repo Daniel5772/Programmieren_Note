@@ -3,19 +3,11 @@ extends KinematicBody2D
 
 var speed = 80
 
+var enemy_hp = 3
+
 var velocity = Vector2()
 
 var stun = false
-
-var enemy_hp = 3
-
-var knockback = 6
-
-var damage = 1
-
-var damage_multiplier = 1
-
-var poits_per_kill = 1
 
 var kill_particle = preload("res://PLayer/Kill_particle.tscn")
 
@@ -27,7 +19,7 @@ func _process(delta):
 		velocity = lerp(velocity, Vector2(0, 0), 0.3)
 		
 	if enemy_hp <= 0:
-		Global.score += poits_per_kill * damage_multiplier
+		Global.score += Global.poits_per_kill * Global.damage_multiplier
 		if Global.node_creation_parent != null:
 			var kill_particle_instance = Global.instance_node(kill_particle, global_position, Global.node_creation_parent)
 			kill_particle_instance.rotation = velocity.angle()
@@ -44,8 +36,8 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damager") and stun == false:
 		
 		modulate = Color.white
-		velocity = -velocity * knockback
-		enemy_hp -= damage
+		velocity = -velocity * Global.knockback
+		enemy_hp -= Global.damage
 		stun = true
 		
 		$Stun_timer.start()
