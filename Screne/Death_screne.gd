@@ -8,4 +8,4 @@ func _on_Button_pressed():
 
 
 func _on_Button2_pressed():
-	queue_free()
+	get_tree().change_scene("res://Screne/Menu.tscn")

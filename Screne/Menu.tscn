@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screne/Menu.gd" type="Script" id=2]
+[ext_resource path="res://GFX/White-Square.jpg" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -87,6 +88,12 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="Control"]
+modulate = Color( 0.0235294, 0.0392157, 0.921569, 1 )
+position = Vector2( 320.491, 199.109 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
