@@ -8,6 +8,7 @@ extents = Vector2( 119.824, 119.469 )
 
 [node name="enemy" type="KinematicBody2D"]
 modulate = Color( 1, 0.0470588, 0, 1 )
+position = Vector2( 309.45, 160.611 )
 scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 2 )
 
