@@ -108,6 +108,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="High_score_text" type="Label" parent="Control"]
+margin_top = 294.602
+margin_right = 640.0
+margin_bottom = 316.602
+custom_fonts/font = SubResource( 4 )
+text = "Highscore"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="Control"]
 modulate = Color( 0.0235294, 0.0392157, 0.921569, 1 )
 position = Vector2( 320.491, 180.109 )
