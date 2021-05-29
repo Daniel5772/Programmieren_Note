@@ -33,7 +33,11 @@ position = Vector2( 320, 180 )
 environment = SubResource( 1 )
 
 [node name="Enemy_spawn_timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 1.5
+autostart = true
+
+[node name="Difficulty_timer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [node name="UI" type="Node2D" parent="."]
@@ -98,3 +102,4 @@ stream = ExtResource( 6 )
 volume_db = -30.0
 autoplay = true
 [connection signal="timeout" from="Enemy_spawn_timer" to="." method="_on_Enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Difficulty_timer" to="." method="_on_Difficulty_timer_timeout"]
