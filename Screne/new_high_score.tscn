@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screne/new_high_score.gd" type="Script" id=2]
 [ext_resource path="res://Screne/old.gd" type="Script" id=3]
 [ext_resource path="res://Screne/new.gd" type="Script" id=4]
 [ext_resource path="res://PLayer/Player_f.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SFX/applause.wav" type="AudioStream" id=6]
 
 [sub_resource type="Environment" id=5]
 background_mode = 4
@@ -126,4 +127,9 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Applaus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -21.204
+autoplay = true
 [connection signal="pressed" from="UI/Control/Button" to="." method="_on_Button_pressed"]
