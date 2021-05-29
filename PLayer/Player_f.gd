@@ -18,7 +18,6 @@ var visibile = true
 var is_dead = false
 
 
-
 func _ready():
 	Global.player = self
 
@@ -44,6 +43,7 @@ func _process(delta):
 		Global.instance_node(bullet_2, global_position, Global.node_creation_parent)
 		$Reload_speed_2.start()
 		can_shoot_2 = false
+		Global.bullet_2 = false
 
 func _on_Reload_speed_timeout():
 	can_shoot = true
@@ -61,3 +61,6 @@ func _on_Hitbox_area_entered(area):
 
 func _on_Reload_speed_2_timeout():
 	can_shoot_2 = true
+	Global.bullet_2 = true
+
+	

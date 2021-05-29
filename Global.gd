@@ -16,6 +16,8 @@ var poits_per_kill = 1
 
 var knockback = 6
 
+var bullet_2 = true
+
 
 func instance_node(node, location, parents):
 	
