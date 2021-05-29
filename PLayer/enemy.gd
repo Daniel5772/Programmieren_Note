@@ -46,10 +46,7 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damager_2") and stun == false:
 		
 		enemy_hp = 0
-	
-		area.get_parent().queue_free()
-		
-		
+
 	if area.is_in_group("hitbox_player"):
 		enemy_hp = 0
 
