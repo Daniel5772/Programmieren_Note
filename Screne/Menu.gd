@@ -7,7 +7,7 @@ func _on_Endless_button_pressed():
 
 
 func _on_Quit_button_pressed():
-	queue_free()
+	get_tree().quit()
 
 
 func _on_Level_button_pressed():
