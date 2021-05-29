@@ -4,6 +4,8 @@ var node_creation_parent = null
 
 var player = null
 
+var camera = null
+
 var score = 0
 
 var high_score = 0

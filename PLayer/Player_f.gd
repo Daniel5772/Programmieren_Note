@@ -56,6 +56,8 @@ func _on_Hitbox_area_entered(area):
 	
 	if area.is_in_group("Enemy"):
 		Global.player_hp -= 1
+		if Global.camera != null:
+			Global.camera.screen_shake(20, 0.1)
 
 		if Global.player_hp <= 0:
 			get_tree().change_scene("res://Screne/Death_screne.tscn")
