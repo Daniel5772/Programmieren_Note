@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Welten/World_death.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.2
+glow_blend_mode = 1
+
+[node name="World_death" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color( 0.705882, 0.0470588, 0, 1 )
+margin_right = 640.0
+margin_bottom = 138.0
+custom_fonts/font = SubResource( 1 )
+text = "you died"
+align = 1
+valign = 1
+
+[node name="Back_to_menu" type="Button" parent="Control"]
+margin_left = 52.976
+margin_top = 190.0
+margin_right = 182.976
+margin_bottom = 265.0
+custom_fonts/font = SubResource( 2 )
+text = "Menu"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_to_world" type="Button" parent="Control"]
+margin_left = 433.901
+margin_top = 190.0
+margin_right = 590.901
+margin_bottom = 265.0
+custom_fonts/font = SubResource( 2 )
+text = "World"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+[connection signal="pressed" from="Control/Back_to_menu" to="." method="_on_Back_to_menu_pressed"]
+[connection signal="pressed" from="Control/Back_to_world" to="." method="_on_Back_to_world_pressed"]

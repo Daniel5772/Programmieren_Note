@@ -11,7 +11,7 @@ func _on_Quit_button_pressed():
 
 
 func _on_Level_button_pressed():
-	get_tree().change_scene("res://Screne/comming soon.tscn")
+	get_tree().change_scene("res://Welten/World hub.tscn")
 	
 	
 

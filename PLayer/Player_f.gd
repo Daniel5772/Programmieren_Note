@@ -59,8 +59,12 @@ func _on_Hitbox_area_entered(area):
 		if Global.camera != null:
 			Global.camera.screen_shake(60, 0.1)
 
-		if Global.player_hp <= 0:
+		if Global.player_hp <= 0 and Global.is_in_world == false:
 			get_tree().change_scene("res://Screne/Death_screne.tscn")
+			
+		if Global.player_hp <= 0 and Global.is_in_world == true:
+			get_tree().change_scene("res://Welten/World_death.tscn")
+			Global.is_in_world = false
 			
 			
 

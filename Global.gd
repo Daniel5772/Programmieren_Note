@@ -20,6 +20,8 @@ var knockback = 6
 
 var bullet_2 = true
 
+var is_in_world = false
+
 
 func instance_node(node, location, parents):
 	

@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Welten/Finished.gd" type="Script" id=2]
+[ext_resource path="res://Welten/Level_fertig.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.2
+glow_blend_mode = 1
+
+[node name="Finished" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 641.0
+margin_bottom = 361.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Finished" type="Label" parent="Control"]
+modulate = Color( 0.239216, 0.588235, 0.0941176, 1 )
+margin_right = 641.0
+margin_bottom = 138.0
+custom_fonts/font = SubResource( 1 )
+text = "Finished"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Finished"]
+margin_left = 219.474
+margin_top = 138.0
+margin_right = 389.474
+margin_bottom = 211.0
+custom_fonts/font = SubResource( 2 )
+text = "You sucsesfull
+finished World"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="Control/Finished"]
+margin_left = 284.773
+margin_top = 211.0
+margin_right = 324.773
+margin_bottom = 263.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu_button" type="Button" parent="Control"]
+margin_left = 98.1391
+margin_top = 211.0
+margin_right = 168.139
+margin_bottom = 252.0
+custom_fonts/font = SubResource( 4 )
+text = "Menu"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Worlds-button" type="Button" parent="Control"]
+margin_left = 437.506
+margin_top = 211.0
+margin_right = 536.506
+margin_bottom = 252.0
+custom_fonts/font = SubResource( 4 )
+text = "Worlds"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+[connection signal="pressed" from="Control/Menu_button" to="." method="_on_Menu_button_pressed"]
+[connection signal="pressed" from="Control/Worlds-button" to="." method="_on_Worldsbutton_pressed"]
