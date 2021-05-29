@@ -28,6 +28,7 @@ glow_blend_mode = 1
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 320, 180 )
 
 [node name="Welt2_enemy_spawn_timer" type="Timer" parent="."]
 wait_time = 0.85
