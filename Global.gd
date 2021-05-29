@@ -6,9 +6,9 @@ var player = null
 
 var score = 0
 
-var player_hp = 5
+var high_score = 0
 
-var damage_multiplier = 1
+var player_hp = 5
 
 var poits_per_kill = 1
 
