@@ -2,9 +2,15 @@
 
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screne/Menu.gd" type="Script" id=2]
-[ext_resource path="res://GFX/White-Square.jpg" type="Texture" id=3]
+[ext_resource path="res://PLayer/Player_f.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SFX/battleThemeA.wav" type="AudioStream" id=4]
 [ext_resource path="res://Screne/High_score.gd" type="Script" id=5]
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.2
+glow_blend_mode = 1
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -18,23 +24,30 @@ font_data = ExtResource( 1 )
 size = 20
 font_data = ExtResource( 1 )
 
-[sub_resource type="Environment" id=3]
-background_mode = 4
-glow_enabled = true
-glow_bloom = 0.2
-glow_blend_mode = 1
-
 [node name="Menu" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Control" type="Control" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Background_musik" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -30.0
+autoplay = true
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Control" type="Control" parent="Node2D"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name" type="Label" parent="Control"]
+[node name="name" type="Label" parent="Node2D/Control"]
 margin_top = 21.0
 margin_right = 640.0
 margin_bottom = 107.0
@@ -47,7 +60,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Endless_button" type="Button" parent="Control"]
+[node name="Endless_button" type="Button" parent="Node2D/Control"]
 margin_left = 120.0
 margin_top = 140.0
 margin_right = 270.0
@@ -59,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit_button" type="Button" parent="Control"]
+[node name="Quit_button" type="Button" parent="Node2D/Control"]
 margin_left = 120.0
 margin_top = 210.0
 margin_right = 270.0
@@ -71,7 +84,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level_button" type="Button" parent="Control"]
+[node name="Level_button" type="Button" parent="Node2D/Control"]
 margin_left = 360.0
 margin_top = 140.0
 margin_right = 510.0
@@ -83,7 +96,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings_button" type="Button" parent="Control"]
+[node name="Settings_button" type="Button" parent="Node2D/Control"]
 margin_left = 360.0
 margin_top = 210.0
 margin_right = 527.0
@@ -95,7 +108,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="High_score" type="Label" parent="Control"]
+[node name="High_score" type="Label" parent="Node2D/Control"]
 margin_top = 320.0
 margin_right = 640.0
 margin_bottom = 338.0
@@ -108,7 +121,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="High_score_text" type="Label" parent="Control"]
+[node name="High_score_text" type="Label" parent="Node2D/Control"]
 margin_top = 294.602
 margin_right = 640.0
 margin_bottom = 316.602
@@ -119,21 +132,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Sprite" type="Sprite" parent="Control"]
-modulate = Color( 0.0235294, 0.0392157, 0.921569, 1 )
-position = Vector2( 320.491, 180.109 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 3 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
-
-[node name="Background_musik" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -30.0
-autoplay = true
-[connection signal="pressed" from="Control/Endless_button" to="." method="_on_Endless_button_pressed"]
-[connection signal="pressed" from="Control/Quit_button" to="." method="_on_Quit_button_pressed"]
-[connection signal="pressed" from="Control/Level_button" to="." method="_on_Level_button_pressed"]
-[connection signal="pressed" from="Control/Settings_button" to="." method="_on_Settings_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Endless_button" to="." method="_on_Endless_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Quit_button" to="." method="_on_Quit_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Level_button" to="." method="_on_Level_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Settings_button" to="." method="_on_Settings_button_pressed"]
