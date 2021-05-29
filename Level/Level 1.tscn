@@ -105,11 +105,11 @@ __meta__ = {
 [node name="bullet_2_shoot" type="Label" parent="UI/Control"]
 modulate = Color( 0.239216, 0.588235, 0.0941176, 1 )
 margin_left = 1.0
-margin_top = 325.0
+margin_top = 326.0
 margin_right = 41.0
-margin_bottom = 360.0
+margin_bottom = 361.0
 custom_fonts/font = SubResource( 4 )
-text = "O"
+text = "1"
 align = 1
 valign = 1
 script = ExtResource( 7 )
@@ -121,5 +121,9 @@ __meta__ = {
 stream = ExtResource( 6 )
 volume_db = -30.0
 autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 320, 180 )
+current = true
 [connection signal="timeout" from="Enemy_spawn_timer" to="." method="_on_Enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="Difficulty_timer" to="." method="_on_Difficulty_timer_timeout"]
