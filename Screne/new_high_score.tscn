@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screne/new_high_score.gd" type="Script" id=2]
@@ -28,6 +28,10 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.013245, 0.97351 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 0.962891, 0.221916, 0.682131, 1 )
 
 [node name="new_high_score" type="Node2D"]
 script = ExtResource( 2 )
@@ -132,4 +136,16 @@ __meta__ = {
 stream = ExtResource( 6 )
 volume_db = -21.204
 autoplay = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 314.571, 0 )
+amount = 5000
+lifetime = 30.0
+preprocess = 600.0
+speed_scale = 0.5
+randomness = 1.0
+emission_shape = 2
+emission_rect_extents = Vector2( 320, 1 )
+gravity = Vector2( 0, 30 )
+color_ramp = SubResource( 6 )
 [connection signal="pressed" from="UI/Control/Button" to="." method="_on_Button_pressed"]
