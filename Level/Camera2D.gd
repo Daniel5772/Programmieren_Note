@@ -25,3 +25,4 @@ func screen_shake(intensity, time):
 
 func _on_Screen_shake_time_timeout():
 	screen_shake_start = false
+	global_position = Vector2(320, 180)
