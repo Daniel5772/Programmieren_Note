@@ -66,6 +66,7 @@ func _on_Hitbox_area_entered(area):
 			get_tree().change_scene("res://Welten/World_death.tscn")
 			Global.is_in_world = false
 
+
 	if area.is_in_group("enemy_2"):
 		Global.player_hp -= 1
 		if Global.camera != null:

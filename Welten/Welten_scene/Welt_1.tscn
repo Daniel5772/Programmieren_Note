@@ -19,11 +19,11 @@ func _process(delta):
 	text = String(Global.player_hp)
 "
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 3 )
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="Environment" id=4]
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.2
@@ -109,7 +109,7 @@ modulate = Color( 0.239216, 0.588235, 0.0941176, 1 )
 margin_top = 320.32
 margin_right = 40.0
 margin_bottom = 355.32
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "1"
 align = 1
 valign = 1
@@ -119,7 +119,7 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
+environment = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 320, 180 )

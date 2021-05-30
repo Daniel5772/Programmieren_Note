@@ -3,6 +3,6 @@ extends Label
 func _process(delta):
 	
 	text = String(Global.score)
-	if Global.score >= 75:
+	if Global.score >= 50:
 		get_tree().change_scene("res://Welten/Finished.tscn")
-		GlobalWorld.worlds_finished = 3
+		GlobalWorld.worlds_finished = 1

@@ -22,6 +22,8 @@ var bullet_2 = true
 
 var is_in_world = false
 
+var saved_highscore = 0
+
 
 func instance_node(node, location, parents):
 	
@@ -32,4 +34,12 @@ func instance_node(node, location, parents):
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
+
+
+
 	
+
+
+
+
+

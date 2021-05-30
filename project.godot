@@ -17,12 +17,14 @@ _global_script_class_icons={
 
 config/name="Square_shooter"
 run/main_scene="res://Screne/Menu.tscn"
+config/use_custom_user_dir=true
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Global.gd"
 GlobalWorld="*res://Welten/GlobalWorld.gd"
+Game="*res://game.gd"
 
 [display]
 

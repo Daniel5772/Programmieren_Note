@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Welten/Welten_scene/score.gd" type="Script" id=1]
+[ext_resource path="res://Welten/Welten_scene/Welt_3/score.gd" type="Script" id=1]
 [ext_resource path="res://Welten/Welten_scene/Welt_2/Welt_2.gd" type="Script" id=2]
 [ext_resource path="res://Welten/Welten_scene/Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=4]
@@ -19,11 +19,11 @@ func _process(delta):
 	text = String(Global.player_hp)
 "
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="Environment" id=4]
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.2
@@ -36,11 +36,11 @@ script = ExtResource( 2 )
 position = Vector2( 320, 180 )
 
 [node name="Welt3_enemy_spawn_timer" type="Timer" parent="."]
-wait_time = 0.85
+wait_time = 0.8
 autostart = true
 
 [node name="Welt3_enemy_2_spawn_timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.5
 autostart = true
 
 [node name="UI" type="Node2D" parent="."]
@@ -59,7 +59,7 @@ margin_top = -3.0
 margin_right = 631.0
 margin_bottom = 66.0
 custom_fonts/font = SubResource( 1 )
-text = "/75"
+text = "/100"
 align = 2
 valign = 1
 __meta__ = {
@@ -67,9 +67,9 @@ __meta__ = {
 }
 
 [node name="score" type="Label" parent="UI/Control"]
-margin_left = -98.982
+margin_left = -125.891
 margin_top = -3.0
-margin_right = 540.018
+margin_right = 513.109
 margin_bottom = 66.0
 custom_fonts/font = SubResource( 1 )
 text = "75"
@@ -114,14 +114,17 @@ modulate = Color( 0.239216, 0.588235, 0.0941176, 1 )
 margin_top = 320.381
 margin_right = 40.0
 margin_bottom = 355.381
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "1"
 align = 1
 valign = 1
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
+environment = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 320, 180 )

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Welten/Welten_scene/score.gd" type="Script" id=1]
+[ext_resource path="res://Welten/Welten_scene/Welt_2/score.gd" type="Script" id=1]
 [ext_resource path="res://Welten/Welten_scene/Welt_2/Welt_2.gd" type="Script" id=2]
 [ext_resource path="res://Welten/Welten_scene/Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=4]
@@ -19,11 +19,11 @@ func _process(delta):
 	text = String(Global.player_hp)
 "
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="Environment" id=4]
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.2
@@ -35,8 +35,12 @@ script = ExtResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 320, 180 )
 
-[node name="Welt2_enemy_spawn_timer" type="Timer" parent="."]
+[node name="Welt3_enemy_spawn_timer" type="Timer" parent="."]
 wait_time = 0.85
+autostart = true
+
+[node name="Welt3_enemy_2_spawner_timer" type="Timer" parent="."]
+wait_time = 4.0
 autostart = true
 
 [node name="UI" type="Node2D" parent="."]
@@ -110,7 +114,7 @@ modulate = Color( 0.239216, 0.588235, 0.0941176, 1 )
 margin_top = 320.638
 margin_right = 40.0
 margin_bottom = 355.638
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "1"
 align = 1
 valign = 1
@@ -120,7 +124,7 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
+environment = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 320, 180 )
@@ -128,5 +132,6 @@ current = true
 script = ExtResource( 3 )
 
 [node name="Screen_shake_time" type="Timer" parent="Camera2D"]
-[connection signal="timeout" from="Welt2_enemy_spawn_timer" to="." method="_on_Welt2_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Welt3_enemy_spawn_timer" to="." method="_on_Welt3_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Welt3_enemy_2_spawner_timer" to="." method="_on_Welt3_enemy_2_spawner_timer_timeout"]
 [connection signal="timeout" from="Camera2D/Screen_shake_time" to="Camera2D" method="_on_Screen_shake_time_timeout"]
