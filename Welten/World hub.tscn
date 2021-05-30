@@ -1,12 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Welten/World hub.gd" type="Script" id=2]
 [ext_resource path="res://Welten/World_1.gd" type="Script" id=3]
 [ext_resource path="res://Welten/World_2.gd" type="Script" id=4]
+[ext_resource path="res://Welten/World 3.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -14,14 +23,10 @@ size = 42
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 42
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=6]
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.2
@@ -61,7 +66,7 @@ margin_left = 80.0
 margin_top = 120.0
 margin_right = 144.0
 margin_bottom = 184.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "1"
 script = ExtResource( 3 )
 __meta__ = {
@@ -73,19 +78,21 @@ margin_left = 200.0
 margin_top = 120.0
 margin_right = 264.0
 margin_bottom = 184.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 text = "2"
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="World 3" type="Button" parent="Control/Control"]
+[node name="World_3" type="Button" parent="Control/Control"]
 margin_left = 320.0
 margin_top = 120.0
 margin_right = 384.0
 margin_bottom = 184.0
-text = "holder"
+custom_fonts/font = SubResource( 4 )
+text = "3"
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -145,7 +152,7 @@ modulate = Color( 0.898039, 0.0745098, 0.0745098, 1 )
 margin_top = 304.0
 margin_right = 68.0
 margin_bottom = 345.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "Back"
 flat = true
 __meta__ = {
@@ -153,7 +160,8 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = SubResource( 6 )
 [connection signal="pressed" from="Control/Control/World_1" to="." method="_on_World_1_pressed"]
 [connection signal="pressed" from="Control/Control/World_2" to="." method="_on_World_2_pressed"]
+[connection signal="pressed" from="Control/Control/World_3" to="." method="_on_World_3_pressed"]
 [connection signal="pressed" from="Control/Control/Button" to="." method="_on_Button_pressed"]

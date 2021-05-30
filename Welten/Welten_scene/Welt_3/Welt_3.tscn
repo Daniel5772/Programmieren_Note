@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Welten/Welten_scene/score.gd" type="Script" id=1]
+[ext_resource path="res://Welten/Welten_scene/Welt_2/Welt_2.gd" type="Script" id=2]
+[ext_resource path="res://Welten/Welten_scene/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://PLayer/Player_f.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Label
+
+func _process(delta):
+	
+	text = String(Global.player_hp)
+"
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.2
+glow_blend_mode = 1
+
+[node name="Welt_3" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 320, 180 )
+
+[node name="Welt3_enemy_spawn_timer" type="Timer" parent="."]
+wait_time = 0.85
+autostart = true
+
+[node name="Welt3_enemy_2_spawn_timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+margin_top = 3.0
+margin_right = 641.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="needed_score" type="Label" parent="UI/Control"]
+margin_left = -8.0
+margin_top = -3.0
+margin_right = 631.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 1 )
+text = "/75"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="UI/Control"]
+margin_left = -98.982
+margin_top = -3.0
+margin_right = 540.018
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 1 )
+text = "75"
+align = 2
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp" type="Label" parent="UI/Control"]
+modulate = Color( 0.933333, 0.188235, 0.0862745, 1 )
+margin_left = -8.0
+margin_top = 288.0
+margin_right = 631.0
+margin_bottom = 357.0
+custom_fonts/font = SubResource( 1 )
+text = "5"
+align = 2
+valign = 1
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp2" type="Label" parent="UI/Control"]
+modulate = Color( 0.933333, 0.188235, 0.0862745, 1 )
+margin_left = -46.6812
+margin_top = 288.0
+margin_right = 592.319
+margin_bottom = 357.0
+custom_fonts/font = SubResource( 1 )
+text = "hp"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 320, 180 )
+current = true
+script = ExtResource( 3 )
+
+[node name="Screen_shake_time" type="Timer" parent="Camera2D"]
+[connection signal="timeout" from="Welt3_enemy_spawn_timer" to="." method="_on_Welt3_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Welt3_enemy_2_spawn_timer" to="." method="_on_Welt3_enemy_2_spawn_timer_timeout"]
+[connection signal="timeout" from="Camera2D/Screen_shake_time" to="Camera2D" method="_on_Screen_shake_time_timeout"]

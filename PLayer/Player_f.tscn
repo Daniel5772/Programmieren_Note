@@ -3,8 +3,6 @@
 [ext_resource path="res://GFX/White-Square.jpg" type="Texture" id=1]
 [ext_resource path="res://PLayer/Player_f.gd" type="Script" id=2]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 128, 129.354 )
 
@@ -30,7 +28,6 @@ one_shot = true
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 shape = SubResource( 1 )
 [connection signal="timeout" from="Reload_speed" to="." method="_on_Reload_speed_timeout"]
 [connection signal="timeout" from="Reload_speed_2" to="." method="_on_Reload_speed_2_timeout"]
