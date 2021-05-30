@@ -55,6 +55,14 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="Difficulty_timer_2" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Enemy_spawn_timer_2" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="UI" type="Node2D" parent="."]
 z_index = -4
 
@@ -187,4 +195,6 @@ align = 1
 valign = 1
 [connection signal="timeout" from="Enemy_spawn_timer" to="." method="_on_Enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="Difficulty_timer" to="." method="_on_Difficulty_timer_timeout"]
+[connection signal="timeout" from="Difficulty_timer_2" to="." method="_on_Difficulty_timer_2_timeout"]
+[connection signal="timeout" from="Enemy_spawn_timer_2" to="." method="_on_Enemy_spawn_timer_2_timeout"]
 [connection signal="timeout" from="Camera2D/Screen_shake_time" to="Camera2D" method="_on_Screen_shake_time_timeout"]
