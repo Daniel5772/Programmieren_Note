@@ -3,7 +3,7 @@
 [ext_resource path="res://GFX/Font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screne/Menu.gd" type="Script" id=2]
 [ext_resource path="res://PLayer/Player_f.tscn" type="PackedScene" id=3]
-[ext_resource path="res://SFX/battleThemeA.wav" type="AudioStream" id=4]
+[ext_resource path="res://SFX/POL-battle-march-short.wav" type="AudioStream" id=4]
 [ext_resource path="res://Screne/High_score.gd" type="Script" id=5]
 
 [sub_resource type="Environment" id=1]
@@ -29,11 +29,6 @@ script = ExtResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
-
-[node name="Background_musik" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -30.0
-autoplay = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
@@ -132,6 +127,11 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.0
+autoplay = true
 [connection signal="pressed" from="UI/Control/Endless_button" to="." method="_on_Endless_button_pressed"]
 [connection signal="pressed" from="UI/Control/Quit_button" to="." method="_on_Quit_button_pressed"]
 [connection signal="pressed" from="UI/Control/Level_button" to="." method="_on_Level_button_pressed"]
