@@ -29,3 +29,7 @@ func instance_node(node, location, parents):
 	parents.add_child(node_instance)
 	node_instance.global_position = location
 	return node_instance
+
+func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	

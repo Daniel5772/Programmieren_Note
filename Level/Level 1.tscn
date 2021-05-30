@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://PLayer/Player_f.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level 1.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://SFX/battleThemeA.wav" type="AudioStream" id=6]
 [ext_resource path="res://Level/bullet_2_shoot.gd" type="Script" id=7]
 [ext_resource path="res://Level/Camera2D.gd" type="Script" id=8]
+[ext_resource path="res://Level/Pause.gd" type="Script" id=9]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -26,6 +27,14 @@ size = 111
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 128
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 3 )
 
@@ -129,6 +138,53 @@ current = true
 script = ExtResource( 8 )
 
 [node name="Screen_shake_time" type="Timer" parent="Camera2D"]
+
+[node name="Pause Menu" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 100
+
+[node name="Pause_Menu" type="Node2D" parent="Pause Menu"]
+
+[node name="Pause" type="Control" parent="Pause Menu/Pause_Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverya" type="ColorRect" parent="Pause Menu/Pause_Menu/Pause"]
+pause_mode = 2
+modulate = Color( 0, 0, 0, 0.352941 )
+margin_right = 640.0
+margin_bottom = 359.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause Menu/Pause_Menu/Pause"]
+margin_top = 38.0
+margin_right = 640.0
+margin_bottom = 176.0
+custom_fonts/font = SubResource( 5 )
+text = "pause"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Pause Menu/Pause_Menu/Pause"]
+margin_left = 253.244
+margin_top = 223.006
+margin_right = 386.244
+margin_bottom = 296.006
+custom_fonts/font = SubResource( 6 )
+text = "press ESC
+to continue"
+align = 1
+valign = 1
 [connection signal="timeout" from="Enemy_spawn_timer" to="." method="_on_Enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="Difficulty_timer" to="." method="_on_Difficulty_timer_timeout"]
 [connection signal="timeout" from="Camera2D/Screen_shake_time" to="Camera2D" method="_on_Screen_shake_time_timeout"]

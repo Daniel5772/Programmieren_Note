@@ -23,3 +23,9 @@ func _on_Enemy_spawn_timer_timeout():
 func _on_Difficulty_timer_timeout():
 	if $Enemy_spawn_timer.wait_time > 0.4:
 		$Enemy_spawn_timer.wait_time -= 0.1
+		
+
+		
+
+
+
